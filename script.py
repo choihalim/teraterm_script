@@ -1,11 +1,16 @@
+from dotenv import load_dotenv
+import os
+import re
 import serial.tools.list_ports
 import subprocess
-import re
+
+load_dotenv()
 
 # constants
 BAUDRATE = 115200
 # edit path to match your Tera Term installation
-TERA_TERM_PATH = r'C:\\Users\\lgeuser\Documents\\01.Tools\\teraterm-5.2\\ttermpro.exe'
+TERA_TERM_PATH = os.getenv("TERA_TERM_PATH")
+print(TERA_TERM_PATH)
 
 # fetch and return a list of available USB serial ports
 def get_serial_ports():
